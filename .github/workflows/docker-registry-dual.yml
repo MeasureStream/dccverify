@@ -2,7 +2,7 @@ name: Build and Push Multi-Arch
 
 on:
   push:
-    branches: [ master]
+    branches: [ master ]
 
 jobs:
   build:
@@ -37,12 +37,11 @@ jobs:
           ./gradlew bootJar -x test
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           platforms: linux/amd64,linux/arm64
           tags: |
-            
-            ${{ github.ref_name == 'main' && format('christiand9699/dccverify:latest,christiand9699/dccverify:main,christiand9699/dccverify:{0}', steps.version.outputs.VERSION) || '' }}
-           
+            christiand9699/dccverify:latest
+            christiand9699/dccverify:${{ steps.version.outputs.VERSION }}
