@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: dccverify
+  profiles:
+    active: ${OS:default}          # come sensor-manager: OS=raspberrypi in produzione
+  servlet:
+    multipart:
+      max-file-size: 5MB           # un DCC pesa qualche centinaio di kB
+      max-request-size: 5MB
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${JWT_ISSUER_URI:https://auth.christiandellisanti.uk/realms/measurestream}
+ 
+server:
+  port: 8080
+ 
+dcc:
+  trust-anchors-path: ${TRUST_ANCHORS_PATH:/app/trust}
+ 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+ 
+logging:
+  level:
+    it.polito.dccverify: INFO
