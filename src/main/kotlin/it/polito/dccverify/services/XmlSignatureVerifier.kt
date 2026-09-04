@@ -1,6 +1,6 @@
 package it.polito.dccverify.services
  
-import it.polito.dccverify.dtos.*
+import it.polito.dccverify.dto.*
 import org.apache.xml.security.Init
 import org.apache.xml.security.signature.XMLSignature
 import org.apache.xml.security.utils.Constants

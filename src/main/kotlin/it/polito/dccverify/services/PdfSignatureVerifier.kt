@@ -3,7 +3,7 @@ package it.polito.dccverify.services
 import com.itextpdf.kernel.pdf.PdfDocument
 import com.itextpdf.kernel.pdf.PdfReader
 import com.itextpdf.signatures.SignatureUtil
-import it.polito.dccverify.dtos.*
+import it.polito.dccverify.dto.*
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.io.File
